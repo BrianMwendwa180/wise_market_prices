@@ -1,73 +1,67 @@
-# Welcome to your Lovable project
+# Wise Market Prices
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/1348ecde-2c0d-401e-8f3e-3f6f72561c05
+Wise Market Prices is a web application designed to empower small-scale farmers with timely market price insights and connections to local buyers. The backend provides RESTful API endpoints for authentication, market prices, categories, and user management. The frontend is built with React, TypeScript, and Tailwind CSS, offering a user-friendly interface for viewing market prices and finding buyers.
 
-## How can I edit this code?
+## How to Run the Project Locally
 
-There are several ways of editing your application.
+### Prerequisites
 
-**Use Lovable**
+- Node.js and npm installed (recommended to install via nvm: https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1348ecde-2c0d-401e-8f3e-3f6f72561c05) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Setup Steps
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd wise_market_prices
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies for both frontend and backend
+npm install
+cd backend
+npm install
+cd ..
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the backend server (runs on port 4000)
+node backend/index.js
+
+# In a separate terminal, start the frontend development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### API Endpoints
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- `POST /api/auth/register` - Register a new user. Requires JSON body with `username` and `password`.
+- `POST /api/auth/login` - Login a user. Requires JSON body with `username` and `password`.
+- `GET /api/auth/me` - Get current user profile. Requires Authorization header with Bearer token.
+- Other endpoints:
+  - `/api/prices`
+  - `/api/categories`
+  - `/api/users` (protected routes)
 
-**Use GitHub Codespaces**
+### Notes
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- The backend uses JWT for authentication.
+- Ensure API requests use the correct HTTP methods and URLs.
+- A catch-all route is implemented to return a 404 JSON response for unknown routes.
 
-## What technologies are used for this project?
-
-This project is built with:
+## Technologies Used
 
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
+- Express.js (backend)
+- bcryptjs, jsonwebtoken for authentication
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/1348ecde-2c0d-401e-8f3e-3f6f72561c05) and click on Share -> Publish.
+You can deploy the project using your preferred hosting service. For local development, use the commands above.
 
-## Can I connect a custom domain to my Lovable project?
+## Additional Resources
 
-Yes, you can!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
