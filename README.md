@@ -63,5 +63,5 @@ npm run dev
 You can deploy the project using your preferred hosting service. For local development, use the commands above.
 
 ## Additional Resources
-
+live demo link  https://wisefarm.netlify.app/
 
